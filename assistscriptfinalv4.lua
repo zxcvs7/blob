@@ -20,11 +20,11 @@ end
 local uiInstanceNew = Instance.new
 
 local GUI_NAME = "SkoblikoHalloweenGUI"
-local WINDOW_WIDTH = 560
-local WINDOW_HEIGHT = 560
-local COLLAPSED_HEIGHT = 160
-local STATS_WIDTH = 360
-local STATS_HEIGHT = 388 -- 28px dedicated status row; artwork remains 360px wide
+local WINDOW_WIDTH = 400
+local WINDOW_HEIGHT = 430
+local COLLAPSED_HEIGHT = 16p
+local STATS_WIDTH = 270
+local STATS_HEIGHT = 300 -- 28px dedicated status row; artwork remains 360px wide
 local UI_SCALE = 0.60 -- smaller on-screen GUI; viewport fitting remains active
 
 -- Image IDs supplied by the user. This is artwork only; no remote code.
@@ -153,7 +153,7 @@ local state = {
     closing = false,
     minimized = false,
     autofarm = false,
-    farmSpeed = 25,
+    farmSpeed = 20,
     farmed = 0,
     dieOnFullBag = false,
     protection = false,

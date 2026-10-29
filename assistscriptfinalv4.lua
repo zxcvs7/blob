@@ -1865,3 +1865,23 @@ task.spawn(function()
     end)
     if not ok and state.alive then warn("[MM2 GUI] preload: "..tostring(message)) end
 end)
+
+-- Auto-Reconnect Script
+local TeleportService = game:GetService("TeleportService")
+local GuiService = game:GetService("GuiService")
+
+-- Listen for error messages (Disconnections)
+GuiService.ErrorMessageChanged:Connect(function()
+    task.wait(5) -- Wait 5 seconds so the game can stabilize
+    print("Attempting to reconnect...")
+    TeleportService:Teleport(game.PlaceId, Players.LocalPlayer)
+end)
+
+-- Automatically enable every GUI toggle when the script finishes loading.
+-- Calling the returned setters updates both the visual switch and its callback/state.
+task.defer(function()
+    if not state.alive or state.closing then return end
+    setAutofarmEnabled(true)
+    setDieOnFullBagEnabled(true)
+    setProtectionEnabled(true)
+end)
